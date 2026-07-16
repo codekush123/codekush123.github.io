@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kush Patel</title>
+<meta name="description" content="Kush Patel — ICT student working on machine learning and computer vision.">
+<style>
+  :root{
+    --bg:#6d3b3b;
+    --ink:#181818;
+    --muted:#6f6f6f;
+    --line:#dddad4;
+    --accent:#7a2e2e;
+    --serif: Charter, 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--serif);
+    font-size:19px; line-height:1.6;
+  }
+  a{color:var(--accent);}
+  a:not(.plain){text-decoration-thickness:1px; text-underline-offset:3px;}
+  .label{
+    font-family:var(--sans); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .page{max-width:960px; margin:0 auto; padding:0 32px 100px;}
+
+  /* top strip */
+  .top{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    padding:30px 0 0; font-family:var(--sans);
+  }
+  .top .name{font-size:13px; letter-spacing:0.04em;}
+  .top nav{display:flex; gap:18px;}
+  .top nav a{color:var(--muted); text-decoration:none; font-size:12.5px; letter-spacing:0.04em;}
+  .top nav a:hover{color:var(--ink);}
+
+  /* hero statement */
+  .hero{padding:70px 0 10px; max-width:680px;}
+  .hero-row{display:flex; gap:20px; align-items:flex-start; margin-bottom:26px;}
+  .photo{
+    width:58px; height:58px; border-radius:50%; object-fit:cover; flex-shrink:0;
+    filter:grayscale(30%);
+  }
+  .hero-meta{font-family:var(--sans); font-size:13px; color:var(--muted); padding-top:8px;}
+  .hero-meta strong{color:var(--ink); font-weight:600;}
+
+  .statement{
+    font-size:clamp(28px, 4vw, 38px); line-height:1.28; font-weight:400; letter-spacing:-0.005em;
+  }
+  .statement em{font-style:italic; color:var(--accent);}
+
+  /* content column with margin notes */
+  .content{max-width:640px; margin-top:80px;}
+  .content > .rule{border:none; border-top:1px solid var(--line); margin:70px 0 0;}
+
+  section{position:relative; margin-top:56px;}
+  section > .label{margin-bottom:22px; display:block;}
+
+  .entry{position:relative; margin-bottom:40px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry p{font-size:18px; color:#2a2a2a; max-width:600px;}
+  .entry p + p{margin-top:14px;}
+
+  .note{
+    float:right; clear:right; width:230px; margin-right:-270px; margin-top:2px;
+    font-family:var(--sans); font-size:12.5px; line-height:1.55; color:var(--muted);
+  }
+  .note strong{display:block; color:var(--ink); font-size:13px; margin-bottom:3px; font-weight:600;}
+  .note .tag{display:inline-block; margin-top:6px;}
+  .note a{color:var(--muted); font-family:var(--sans);}
+  .note a:hover{color:var(--accent);}
+
+  .plain-para{max-width:600px; font-size:18px; color:#2a2a2a;}
+
+  .skills-list{font-family:var(--sans); font-size:15px; color:#2a2a2a; max-width:600px;}
+  .skills-list .row{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line);}
+  .skills-list .row:last-child{border-bottom:none;}
+  .skills-list .k{color:var(--muted); width:110px; flex-shrink:0; font-size:13px; padding-top:1px;}
+  .skills-list .v{color:#2a2a2a;}
+
+  .cert-list{font-size:17px; margin-top:6px;}
+  .cert-list li{margin-bottom:6px; color:#2a2a2a; list-style:none; position:relative; padding-left:14px;}
+  .cert-list li::before{content:'—'; position:absolute; left:0; color:var(--muted);}
+
+  footer{margin-top:90px; max-width:600px;}
+  footer .label{margin-bottom:18px;}
+  footer p{font-size:18px; color:#2a2a2a;}
+  .contact-links{font-family:var(--sans); font-size:15px; margin-top:20px;}
+  .contact-links div{padding:5px 0;}
+  .foot-meta{
+    margin-top:70px; font-family:var(--sans); font-size:11px; color:var(--muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; border-top:1px solid var(--line); padding-top:18px;
+  }
+
+  @media (max-width:900px){
+    .note{float:none; width:auto; margin-right:0; margin-top:8px; margin-bottom:16px; padding-left:14px; border-left:2px solid var(--line);}
+  }
+  @media (max-width:560px){
+    body{font-size:17px;}
+    .statement{font-size:26px;}
+    .entry p, .plain-para{font-size:16.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <span class="name">Kush Patel</span>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#notes">Notes</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div class="hero-row">
+      <img class="photo" src="photo.jpg" alt="Kush Patel"
+           onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 58 58%22%3E%3Ccircle cx=%2229%22 cy=%2229%22 r=%2229%22 fill=%22%23eeece6%22/%3E%3Ctext x=%2229%22 y=%2235%22 font-family=%22sans-serif%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22%3EKP%3C/text%3E%3C/svg%3E';">
+      <div class="hero-meta">Helsinki, Finland<br><strong>ICT student</strong>, Häme University of Applied Sciences</div>
+    </div>
+    <p class="statement">I study where software meets the physical world &mdash; <em>machine learning, computer vision</em>, and lately, a fair amount of CAD.</p>
+  </div>
+
+  <div class="content">
+
+    <p class="plain-para">I'm most interested in the kind of problems where a model has to make sense of something real: a camera feed, a drawing, a body in motion. That's pulled me toward defense, robotics, and aerospace applications specifically. I'm still early in it &mdash; most of what I know so far comes from coursework, a handful of projects, and a part-time role at a defense startup that's taught me more in a few months than I expected. Outside of that, I work through LeetCode problems on a rolling basis, mostly to keep the fundamentals from going soft.</p>
+
+    <hr class="rule">
+
+    <section id="work">
+      <span class="label">Work</span>
+
+      <div class="entry">
+        <div class="note">
+          <strong>SelectAM, Finland</strong>
+          Nov 2025 &ndash; Feb 2026
+        </div>
+        <p>As a project-based student at SelectAM, I built a REST API around a Tencent model that turns vector-based drawings into CAD-ready models. It meant learning to run LLMs locally and lean on computer vision libraries inside a small, fast-moving defense startup, where most problems didn't come with a manual.</p>
+        <p>I worked directly with the CTO and CBO to keep the project pointed at what they actually needed, which was as much a communication exercise as a technical one.</p>
+      </div>
+
+      <div class="entry">
+        <div class="note">
+          <strong>Demola Group &mdash; Edge Vision</strong>
+          Aug 2025 &ndash; Dec 2025
+        </div>
+        <p>I developed a computer vision prototype that reads workstation posture from video and turns it into ergonomics recommendations, working across data preprocessing, supervised model experimentation, and the REST API that tied it together.</p>
+        <p>As part of an agile, cross-functional team, I helped present the prototype across several iterations to stakeholders from Microsoft, the City of Riihimäki, and Business Vantaa.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <span class="label">Projects</span>
+
+      <div class="entry">
+        <div class="note">
+          Python, SAM, FastAPI
+          <span class="tag"><a href="https://github.com/codekush123/defense-part-extractor" target="_blank" rel="noopener">Repository ↗</a></span>
+        </div>
+        <p><strong style="font-family:var(--sans); font-weight:600;">defense-part-extractor</strong> &mdash; an MLOps-ready computer vision pipeline using the Segment Anything Model and FastAPI to isolate and clean up mechanical components from noisy, legacy defense manuals.</p>
+      </div>
+
+      <div class="entry">
+        <div class="note">
+          Python, CNN, Jupyter
+          <span class="tag"><a href="https://github.com/codekush123/Cancer_Detection" target="_blank" rel="noopener">Repository ↗</a></span>
+        </div>
+        <p><strong style="font-family:var(--sans); font-weight:600;">Cancer_Detection</strong> &mdash; a convolutional neural network trained to detect cancer from medical imaging, built to understand how CNNs behave on small, imbalanced medical datasets.</p>
+      </div>
+
+      <div class="entry">
+        <div class="note">
+          Python, ML, feature engineering
+          <span class="tag"><a href="https://github.com/codekush123/mood_based_study_mode_recommender" target="_blank" rel="noopener">Repository ↗</a></span>
+        </div>
+        <p><strong style="font-family:var(--sans); font-weight:600;">mood_based_study_mode_recommender</strong> &mdash; a mood-aware study session recommender built with interpretable ML, focused more on label quality and behavior-level evaluation under low-data conditions than on chasing accuracy.</p>
+      </div>
+
+      <div class="entry">
+        <div class="note">
+          Python, NLP, scikit-learn
+          <span class="tag"><a href="https://github.com/codekush123/Fake_News_Detector" target="_blank" rel="noopener">Repository ↗</a></span>
+        </div>
+        <p><strong style="font-family:var(--sans); font-weight:600;">Fake_News_Detector</strong> &mdash; a text classifier that flags news articles as real or fake, using standard NLP cleaning and vectorization feeding into a supervised model.</p>
+      </div>
+    </section>
+
+    <section id="notes">
+      <span class="label">Skills</span>
+      <div class="skills-list">
+        <div class="row"><div class="k">Programming</div><div class="v">Python (advanced), SQL (MySQL / analytical), Git</div></div>
+        <div class="row"><div class="k">Tools</div><div class="v">SageMaker, Jupyter Notebook, Streamlit, Cursor</div></div>
+        <div class="row"><div class="k">Networking</div><div class="v">TCP/IP, PuTTY, server fundamentals</div></div>
+        <div class="row"><div class="k">Machine learning</div><div class="v">Supervised &amp; unsupervised learning, feature engineering</div></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <span class="label">Education &amp; certifications</span>
+      <div class="entry">
+        <div class="note"><strong>Häme University of Applied Sciences</strong>2024 &ndash; 2027</div>
+        <p><strong style="font-family:var(--sans); font-weight:600;">Bachelor's, Information &amp; Communication Technology.</strong> Coursework: network management, software development, machine learning, communication technologies.</p>
+      </div>
+      <ul class="cert-list">
+        <li>Data and Programming Foundations for Machine Learning</li>
+        <li>AWS Educate &mdash; Machine Learning Foundations</li>
+        <li>Cisco Certified Network Associate &mdash; Networking</li>
+        <li>IBM &mdash; Certified Data Scientist</li>
+      </ul>
+    </section>
+
+    <section id="leetcode">
+      <span class="label">LeetCode</span>
+      <p class="plain-para">Working through problems on a rolling basis to keep data structures and algorithms sharp alongside coursework and project work.</p>
+      <p style="margin-top:10px;"><!-- Replace YOUR-USERNAME with your actual LeetCode handle --><a href="https://leetcode.com/YOUR-USERNAME/" target="_blank" rel="noopener" style="font-family:var(--sans); font-size:15px;">leetcode.com/YOUR-USERNAME ↗</a></p>
+    </section>
+
+    <footer id="contact">
+      <span class="label">Contact</span>
+      <p>Open to internships and hands-on machine learning or computer vision work.</p>
+      <div class="contact-links">
+        <div><a href="mailto:pkush2036@gmail.com">pkush2036@gmail.com</a></div>
+        <div><a href="https://github.com/codekush123" target="_blank" rel="noopener">github.com/codekush123 ↗</a></div>
+        <div><a href="https://www.linkedin.com/in/kushpatel9650/" target="_blank" rel="noopener">linkedin.com/in/kushpatel9650 ↗</a></div>
+      </div>
+      <div class="foot-meta">
+        <span>Kush Patel · Helsinki, Finland</span>
+        <span>Last updated July 2026</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>
