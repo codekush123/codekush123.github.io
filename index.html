@@ -1,244 +1,639 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kush Patel</title>
-<meta name="description" content="Kush Patel — ICT student working on machine learning and computer vision.">
-<style>
-  :root{
-    --bg:#ebe1e1;
-    --ink:#d5204e;
-    --muted:#0b0b0b;
-    --line:#111010;
-    --accent:#7a2e2e;
-    --serif: Charter, 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
-    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0; padding:0;}
-  body{
-    background:var(--bg); color:var(--ink); font-family:var(--serif);
-    font-size:19px; line-height:1.6;
-  }
-  a{color:var(--accent);}
-  a:not(.plain){text-decoration-thickness:1px; text-underline-offset:3px;}
-  .label{
-    font-family:var(--sans); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  .page{max-width:960px; margin:0 auto; padding:0 32px 100px;}
-
-  /* top strip */
-  .top{
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
-    padding:30px 0 0; font-family:var(--sans);
-  }
-  .top .name{font-size:13px; letter-spacing:0.04em;}
-  .top nav{display:flex; gap:18px;}
-  .top nav a{color:var(--muted); text-decoration:none; font-size:12.5px; letter-spacing:0.04em;}
-  .top nav a:hover{color:var(--ink);}
-
-  /* hero statement */
-  .hero{padding:70px 0 10px; max-width:680px;}
-  .hero-row{display:flex; gap:20px; align-items:flex-start; margin-bottom:26px;}
-  .photo{
-    width:58px; height:58px; border-radius:50%; object-fit:cover; flex-shrink:0;
-    filter:grayscale(30%);
-  }
-  .hero-meta{font-family:var(--sans); font-size:13px; color:var(--muted); padding-top:8px;}
-  .hero-meta strong{color:var(--ink); font-weight:600;}
-
-  .statement{
-    font-size:clamp(28px, 4vw, 38px); line-height:1.28; font-weight:400; letter-spacing:-0.005em;
-  }
-  .statement em{font-style:italic; color:var(--accent);}
-
-  /* content column with margin notes */
-  .content{max-width:640px; margin-top:80px;}
-  .content > .rule{border:none; border-top:1px solid var(--line); margin:70px 0 0;}
-
-  section{position:relative; margin-top:56px;}
-  section > .label{margin-bottom:22px; display:block;}
-
-  .entry{position:relative; margin-bottom:40px;}
-  .entry:last-child{margin-bottom:0;}
-  .entry p{font-size:18px; color:#2a2a2a; max-width:600px;}
-  .entry p + p{margin-top:14px;}
-
-  .note{
-    float:right; clear:right; width:230px; margin-right:-270px; margin-top:2px;
-    font-family:var(--sans); font-size:12.5px; line-height:1.55; color:var(--muted);
-  }
-  .note strong{display:block; color:var(--ink); font-size:13px; margin-bottom:3px; font-weight:600;}
-  .note .tag{display:inline-block; margin-top:6px;}
-  .note a{color:var(--muted); font-family:var(--sans);}
-  .note a:hover{color:var(--accent);}
-
-  .plain-para{max-width:600px; font-size:18px; color:#2a2a2a;}
-
-  .skills-list{font-family:var(--sans); font-size:15px; color:#2a2a2a; max-width:600px;}
-  .skills-list .row{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line);}
-  .skills-list .row:last-child{border-bottom:none;}
-  .skills-list .k{color:var(--muted); width:110px; flex-shrink:0; font-size:13px; padding-top:1px;}
-  .skills-list .v{color:#2a2a2a;}
-
-  .cert-list{font-size:17px; margin-top:6px;}
-  .cert-list li{margin-bottom:6px; color:#2a2a2a; list-style:none; position:relative; padding-left:14px;}
-  .cert-list li::before{content:'—'; position:absolute; left:0; color:var(--muted);}
-
-  footer{margin-top:90px; max-width:600px;}
-  footer .label{margin-bottom:18px;}
-  footer p{font-size:18px; color:#2a2a2a;}
-  .contact-links{font-family:var(--sans); font-size:15px; margin-top:20px;}
-  .contact-links div{padding:5px 0;}
-  .foot-meta{
-    margin-top:70px; font-family:var(--sans); font-size:11px; color:var(--muted);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; border-top:1px solid var(--line); padding-top:18px;
-  }
-
-  @media (max-width:900px){
-    .note{float:none; width:auto; margin-right:0; margin-top:8px; margin-bottom:16px; padding-left:14px; border-left:2px solid var(--line);}
-  }
-  @media (max-width:560px){
-    body{font-size:17px;}
-    .statement{font-size:26px;}
-    .entry p, .plain-para{font-size:16.5px;}
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kush Patel · Machine learning, computer vision, CAD</title>
+<meta name="description" content="Kush Patel is an ICT student in Helsinki working on machine learning, computer vision and CAD. He is building a drawing reader at SelectAM and BorealLM, a small language model for additive manufacturing.">
+<link rel="canonical" href="https://codekush123.github.io/">
+<meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0c" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://codekush123.github.io/">
+<meta property="og:site_name" content="Kush Patel">
+<meta property="og:title" content="Kush Patel · Machine learning, computer vision, CAD">
+<meta property="og:description" content="Building a drawing reader at SelectAM and BorealLM, a small language model for additive manufacturing.">
+<meta property="og:image" content="https://codekush123.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kush Patel: machine learning, computer vision, CAD">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=20261016">
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="assets/site.js?v=20261016" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kush Patel",
+  "url": "https://codekush123.github.io/",
+  "jobTitle": "Project-based student",
+  "worksFor": { "@type": "Organization", "name": "SelectAM" },
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Häme University of Applied Sciences" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Helsinki", "addressCountry": "FI" },
+  "knowsAbout": ["Machine learning", "Computer vision", "CAD", "Engineering drawings", "Language models"],
+  "sameAs": [
+    "https://github.com/codekush123",
+    "https://www.linkedin.com/in/kushpatel9650/",
+    "https://leetcode.com/codekush123/"
+  ]
+}
+</script>
 </head>
 <body>
-<div class="page">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="top">
-    <span class="name">Kush Patel</span>
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#projects">Projects</a>
-      <a href="#notes">Notes</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></symbol>
+    <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 11 11 5M6 5h5v5"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 16 16"><path d="M5.5 4.5 2 8l3.5 3.5M10.5 4.5 14 8l-3.5 3.5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8.5" height="8.5" rx="1.75"/><path d="M10.75 5.25V4a1.75 1.75 0 0 0-1.75-1.75H4A1.75 1.75 0 0 0 2.25 4v5A1.75 1.75 0 0 0 4 10.75h1.25"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="m3 8.5 3.25 3.25L13 4.75"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.75"/><path d="M8 1.5v1.25M8 13.25v1.25M1.5 8h1.25M13.25 8h1.25M3.4 3.4l.88.88M11.72 11.72l.88.88M3.4 12.6l.88-.88M11.72 4.28l.88-.88"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 16 16"><path d="M13.25 9.75A5.5 5.5 0 0 1 6.25 2.75a5.5 5.5 0 1 0 7 7z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M5 3.4v9.2a.6.6 0 0 0 .9.52l7.6-4.6a.6.6 0 0 0 0-1.04l-7.6-4.6A.6.6 0 0 0 5 3.4z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 16 16"><path d="M5.5 3.75v8.5M10.5 3.75v8.5"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 16 16"><path d="M10 3.5 5.5 8l4.5 4.5"/></symbol>
+    <symbol id="i-next" viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 16 16"><path d="M2.5 5.5h11M2.5 10.5h11"/></symbol>
+  </defs>
+</svg>
 
-  <div class="hero">
-    <div class="hero-row">
-      <img class="photo" src="photo.jpg" alt="Kush Patel"
-           onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 58 58%22%3E%3Ccircle cx=%2229%22 cy=%2229%22 r=%2229%22 fill=%22%23eeece6%22/%3E%3Ctext x=%2229%22 y=%2235%22 font-family=%22sans-serif%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22%3EKP%3C/text%3E%3C/svg%3E';">
-      <div class="hero-meta">Helsinki, Finland<br><strong>ICT student</strong>, Häme University of Applied Sciences</div>
+<header class="site-header" data-header>
+  <div class="wrap header-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">KP</span><span>Kush Patel</span></a>
+    <div class="header-actions">
+      <nav id="site-nav" class="nav" aria-label="Sections" data-nav>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+        <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
     </div>
-    <p class="statement">I study where software meets the physical world &mdash; <em>machine learning, computer vision</em>, and lately, a fair amount of CAD.</p>
   </div>
+</header>
 
-  <div class="content">
+<main id="main">
 
-    <p class="plain-para">I'm most interested in the kind of problems where a model has to make sense of something real: a camera feed, a drawing, a body in motion. That's pulled me toward defense, robotics, and aerospace applications specifically. I'm still early in it &mdash; most of what I know so far comes from coursework, a handful of projects, and a part-time role at a defense startup that's taught me more in a few months than I expected. Outside of that, I work through LeetCode problems on a rolling basis, mostly to keep the fundamentals from going soft.</p>
+  <section class="hero" id="top" data-hero>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-spot" aria-hidden="true"></div>
+    <div class="wrap">
+      <a class="hero-kicker" href="#cad-drawing-reader"><span class="pulse" aria-hidden="true"></span><span>Currently at <strong>SelectAM</strong>, building a drawing reader</span></a>
+      <h1>Kush Patel</h1>
+      <p class="hero-lead">I work where software meets the physical world: <em>machine learning, computer vision</em> and, lately, a lot of CAD.</p>
+      <dl class="hero-facts">
+        <div><dt>Studying</dt><dd>ICT, Häme University of Applied Sciences</dd></div>
+        <div><dt>Working</dt><dd>Project-based student, SelectAM</dd></div>
+        <div><dt>Based in</dt><dd>Helsinki, Finland<span class="local-time" data-clock hidden></span></dd></div>
+      </dl>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">See current work <svg class="icon i-move" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn" href="#contact">Get in touch</a>
+        <span class="hero-social">
+          <a class="icon-btn" href="https://github.com/codekush123" target="_blank" rel="me noopener" aria-label="GitHub profile"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/kushpatel9650/" target="_blank" rel="me noopener" aria-label="LinkedIn profile"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+        </span>
+      </div>
+    </div>
+  </section>
 
-    <hr class="rule">
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow"><span class="num">01</span> Current work</p>
+        <h2 id="projects-title">Two projects, both in development</h2>
+        <p class="section-intro">One I'm building for SelectAM and one of my own. Both repositories stay private while the work is in progress, so this is what they do and where they stand.</p>
+      </header>
 
-    <section id="work">
-      <span class="label">Work</span>
-
-      <div class="entry">
-        <div class="note">
-          <strong>SelectAM, Finland</strong>
-          Nov 2025 &ndash; Feb 2026
+      <!-- cad-drawing-reader -->
+      <article class="project" id="cad-drawing-reader" aria-labelledby="cdr-title">
+        <div class="project-head" data-reveal>
+          <h3 id="cdr-title">cad-drawing-reader</h3>
+          <ul class="tags" aria-label="Project status">
+            <li class="tag tag-live"><span class="pulse" aria-hidden="true"></span>In development</li>
+            <li class="tag">Built for SelectAM</li>
+            <li class="tag">Private repository</li>
+          </ul>
         </div>
-        <p>As a project-based student at SelectAM, I built a REST API around a Tencent model that turns vector-based drawings into CAD-ready models. It meant learning to run LLMs locally and lean on computer vision libraries inside a small, fast-moving defense startup, where most problems didn't come with a manual.</p>
-        <p>I worked directly with the CTO and CBO to keep the project pointed at what they actually needed, which was as much a communication exercise as a technical one.</p>
-      </div>
 
-      <div class="entry">
-        <div class="note">
-          <strong>Demola Group &mdash; Edge Vision</strong>
-          Aug 2025 &ndash; Dec 2025
+        <div class="project-body">
+          <div class="project-text" data-reveal>
+            <p class="lead">Reads 2D mechanical drawings, from vector PDFs or scans, and turns them into structured part data: the views on the sheet, every dimension and tolerance, surface finish and material, and the part's overall size and approximate volume.</p>
+            <p>Everything runs on the machine it's installed on. There's no cloud service, API key or network call anywhere in the pipeline, so a drawing never leaves the computer reading it. It has a web app for reviewing results, a command line for whole folders and a REST API.</p>
+            <p>Every rule in the pipeline is a drafting convention with a citation (ISO 128, 129, 286, 1302 and 5457) rather than a setting tuned to particular drawings. Thresholds are measured across the whole drawing set, and each measurement is written next to its threshold in the code.</p>
+          </div>
+          <dl class="project-meta" data-reveal style="--delay:.08s">
+            <div><dt>Stack</dt><dd>Python, FastAPI, OpenCV, PyMuPDF, Tesseract, PaddleOCR, PostgreSQL, Redis, Next.js, Docker</dd></div>
+            <div><dt>Outputs</dt><dd>Excel, CSV and JSON, overlay images, a 3D-ready model file and true-size DXF views for CAD</dd></div>
+            <div><dt>Where it stands</dt><dd>Vector PDFs read reliably. Scanned drawings are the hard part and where most of the current work goes.</dd></div>
+          </dl>
         </div>
-        <p>I developed a computer vision prototype that reads workstation posture from video and turns it into ergonomics recommendations, working across data preprocessing, supervised model experimentation, and the REST API that tied it together.</p>
-        <p>As part of an agile, cross-functional team, I helped present the prototype across several iterations to stakeholders from Microsoft, the City of Riihimäki, and Business Vantaa.</p>
-      </div>
-    </section>
 
-    <section id="projects">
-      <span class="label">Projects</span>
+        <figure class="demo" data-demo data-reveal aria-labelledby="demo-title">
+          <div class="demo-head">
+            <div>
+              <h4 id="demo-title">How it reads a drawing</h4>
+              <p>A walkthrough on one of the project's synthetic test sheets, which come with exact ground truth.</p>
+            </div>
+            <div class="demo-controls">
+              <button class="icon-btn" type="button" data-demo-prev aria-label="Previous step"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+              <button class="btn btn-sm play-btn" type="button" data-demo-play aria-label="Play walkthrough"><svg class="icon i-play" aria-hidden="true"><use href="#i-play"/></svg><svg class="icon i-pause" aria-hidden="true"><use href="#i-pause"/></svg><span data-play-label aria-hidden="true">Play</span></button>
+              <button class="icon-btn" type="button" data-demo-next aria-label="Next step"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+            </div>
+          </div>
 
-      <div class="entry">
-        <div class="note">
-          Python, SAM, FastAPI
-          <span class="tag"><a href="https://github.com/codekush123/defense-part-extractor" target="_blank" rel="noopener">Repository ↗</a></span>
+          <div class="demo-stage">
+            <svg class="dwg" viewBox="0 0 264 136" role="img" aria-labelledby="dwg-title dwg-desc" data-step="1">
+            <title id="dwg-title">Engineering drawing of a plate with two holes</title>
+            <desc id="dwg-desc">Third-angle drawing of a 160 by 50 by 12 millimeter plate with two 10 millimeter through holes, shown in top, front and right views, with dimensions and a title block.</desc>
+            <g class="sheet">
+            <rect class="t frame" x="2" y="2" width="260" height="132"/>
+            <g class="view" data-view="top">
+            <rect class="w" x="20" y="16" width="160" height="50"/>
+            <circle class="w hole" cx="55" cy="31" r="5"/>
+            <line class="c" x1="47.5" y1="31" x2="62.5" y2="31"/>
+            <line class="c" x1="55" y1="23.5" x2="55" y2="38.5"/>
+            <circle class="w hole" cx="115" cy="51" r="5"/>
+            <line class="c" x1="107.5" y1="51" x2="122.5" y2="51"/>
+            <line class="c" x1="115" y1="43.5" x2="115" y2="58.5"/>
+            </g>
+            <g class="view" data-view="front">
+            <rect class="w" x="20" y="82" width="160" height="12"/>
+            <line class="h" x1="50" y1="82" x2="50" y2="94"/>
+            <line class="h" x1="60" y1="82" x2="60" y2="94"/>
+            <line class="h" x1="110" y1="82" x2="110" y2="94"/>
+            <line class="h" x1="120" y1="82" x2="120" y2="94"/>
+            <line class="c" x1="55" y1="79.5" x2="55" y2="96.5"/>
+            <line class="c" x1="115" y1="79.5" x2="115" y2="96.5"/>
+            </g>
+            <g class="view" data-view="right">
+            <rect class="w" x="196" y="82" width="50" height="12"/>
+            <line class="h" x1="206" y1="82" x2="206" y2="94"/>
+            <line class="h" x1="216" y1="82" x2="216" y2="94"/>
+            <line class="h" x1="226" y1="82" x2="226" y2="94"/>
+            <line class="h" x1="236" y1="82" x2="236" y2="94"/>
+            <line class="c" x1="211" y1="79.5" x2="211" y2="96.5"/>
+            <line class="c" x1="231" y1="79.5" x2="231" y2="96.5"/>
+            </g>
+            <g class="dim" data-dim="len">
+            <line class="t" x1="20" y1="95.5" x2="20" y2="113"/>
+            <line class="t" x1="180" y1="95.5" x2="180" y2="113"/>
+            <line class="t" x1="20" y1="111" x2="180" y2="111"/>
+            <path class="ah" d="M20 111 L22.2 110.38 L22.2 111.62 Z"/>
+            <path class="ah" d="M180 111 L177.8 111.62 L177.8 110.38 Z"/>
+            <text class="tx" x="100" y="109.8" font-size="3.2" text-anchor="middle">160</text>
+            <rect class="hit" x="94.22" y="104.53" width="11.56" height="8.94"/>
+            </g>
+            <g class="dim" data-dim="x35">
+            <line class="t" x1="20" y1="95.5" x2="20" y2="104"/>
+            <line class="t" x1="55" y1="97.5" x2="55" y2="104"/>
+            <line class="t" x1="20" y1="102" x2="55" y2="102"/>
+            <path class="ah" d="M20 102 L22.2 101.38 L22.2 102.62 Z"/>
+            <path class="ah" d="M55 102 L52.8 102.62 L52.8 101.38 Z"/>
+            <text class="tx" x="37.5" y="100.8" font-size="3.2" text-anchor="middle">35</text>
+            <rect class="hit" x="32.68" y="95.53" width="9.64" height="8.94"/>
+            </g>
+            <g class="dim" data-dim="h12">
+            <line class="t" x1="181.5" y1="82" x2="190" y2="82"/>
+            <line class="t" x1="181.5" y1="94" x2="190" y2="94"/>
+            <line class="t" x1="188" y1="82" x2="188" y2="94"/>
+            <path class="ah" d="M188 82 L188.62 84.2 L187.38 84.2 Z"/>
+            <path class="ah" d="M188 94 L187.38 91.8 L188.62 91.8 Z"/>
+            <text class="tx" transform="translate(187.2 88) rotate(-90)" font-size="3.2" text-anchor="middle">12</text>
+            <rect class="hit" x="181.93" y="83.18" width="8.94" height="9.64"/>
+            </g>
+            <g class="dim" data-dim="w50">
+            <line class="t" x1="181.5" y1="16" x2="199" y2="16"/>
+            <line class="t" x1="181.5" y1="66" x2="199" y2="66"/>
+            <line class="t" x1="197" y1="16" x2="197" y2="66"/>
+            <path class="ah" d="M197 16 L197.62 18.2 L196.38 18.2 Z"/>
+            <path class="ah" d="M197 66 L196.38 63.8 L197.62 63.8 Z"/>
+            <text class="tx" transform="translate(196.2 41) rotate(-90)" font-size="3.2" text-anchor="middle">50</text>
+            <rect class="hit" x="190.93" y="36.18" width="8.94" height="9.64"/>
+            </g>
+            <g class="dim" data-dim="y35">
+            <line class="t" x1="181.5" y1="31" x2="191" y2="31"/>
+            <line class="t" x1="181.5" y1="66" x2="191" y2="66"/>
+            <line class="t" x1="189" y1="31" x2="189" y2="66"/>
+            <path class="ah" d="M189 31 L189.62 33.2 L188.38 33.2 Z"/>
+            <path class="ah" d="M189 66 L188.38 63.8 L189.62 63.8 Z"/>
+            <text class="tx" transform="translate(188.2 48.5) rotate(-90)" font-size="3.2" text-anchor="middle">35</text>
+            <rect class="hit" x="182.93" y="43.68" width="8.94" height="9.64"/>
+            </g>
+            <g class="dim" data-dim="d10">
+            <polyline class="t" fill="none" points="57.5,26.67 65.74,12.4 67.54,12.4"/>
+            <path class="ah" d="M57.5 26.67 L58.06 24.45 L59.14 25.07 Z"/>
+            <text class="tx" x="68.14" y="13.55" font-size="3.2" text-anchor="start">2X Ø10</text>
+            <rect class="hit" x="65.24" y="8.28" width="17.32" height="8.94"/>
+            </g>
+            <g class="tb">
+            <rect class="t" x="196" y="104" width="62" height="26"/>
+            <line class="t" x1="196" y1="112.67" x2="258" y2="112.67"/>
+            <line class="t" x1="196" y1="121.33" x2="258" y2="121.33"/>
+            <text class="tx" x="198.2" y="109.92" font-size="2.6" text-anchor="start">PART plate_with_holes-0001</text>
+            <text class="tx" x="198.2" y="118.58" font-size="2.6" text-anchor="start">SCALE 1:1</text>
+            <text class="tx" x="218.5" y="118.58" font-size="2.6" text-anchor="start">UNITS MM</text>
+            <text class="tx" x="198.2" y="127.25" font-size="2.6" text-anchor="start">THIRD ANGLE</text>
+            <circle class="t" cx="243" cy="125.67" r="2.6"/>
+            <circle class="t" cx="243" cy="125.67" r="1.25"/>
+            <path class="t" fill="none" d="M248 124.42 L255 123.07 L255 128.27 L248 126.92 Z"/>
+            </g>
+            </g>
+            <g class="ov ov-1" aria-hidden="true">
+            <path class="ob" pathLength="1" d="M3.4 3.4 H260.6 V132.6 H3.4 Z"/>
+            <path class="ob fillwash" pathLength="1" d="M194.4 102.4 H259.6 V131.6 H194.4 Z"/>
+            <g class="chip"><rect x="4.6" y="4.6" width="17.58" height="4.3" rx="1"/><text x="5.8" y="7.55" font-size="2.3">SHEET FRAME</text></g>
+            <g class="chip"><rect x="194.4" y="96.6" width="17.58" height="4.3" rx="1"/><text x="195.6" y="99.55" font-size="2.3">TITLE BLOCK</text></g>
+            </g>
+            <g class="ov ov-2" aria-hidden="true">
+            <path class="ob" pathLength="1" d="M16.5 12.5 H183.5 V69.5 H16.5 Z"/>
+            <path class="ob" pathLength="1" d="M16.5 78.5 H183.5 V97.5 H16.5 Z"/>
+            <path class="ob" pathLength="1" d="M192.5 78.5 H249.5 V97.5 H192.5 Z"/>
+            <g class="chip"><rect x="16.5" y="6.6" width="6.54" height="4.3" rx="1"/><text x="17.7" y="9.55" font-size="2.3">TOP</text></g>
+            <g class="chip"><rect x="16.5" y="72.6" width="9.3" height="4.3" rx="1"/><text x="17.7" y="75.55" font-size="2.3">FRONT</text></g>
+            <g class="chip"><rect x="192.5" y="72.6" width="9.3" height="4.3" rx="1"/><text x="193.7" y="75.55" font-size="2.3">RIGHT</text></g>
+            </g>
+            <g class="ov ov-3" aria-hidden="true">
+            <path class="ob tbox" pathLength="1" d="M96.42 106.73 H103.58 V111.27 H96.42 Z"/>
+            <path class="ob tbox" pathLength="1" d="M34.88 97.73 H40.12 V102.27 H34.88 Z"/>
+            <path class="ob tbox" pathLength="1" d="M184.13 85.38 H188.67 V90.62 H184.13 Z"/>
+            <path class="ob tbox" pathLength="1" d="M193.13 38.38 H197.67 V43.62 H193.13 Z"/>
+            <path class="ob tbox" pathLength="1" d="M185.13 45.88 H189.67 V51.12 H185.13 Z"/>
+            <path class="ob tbox" pathLength="1" d="M67.44 10.48 H80.36 V15.02 H67.44 Z"/>
+            <path class="ob tbox" pathLength="1" d="M197.6 107.39 H239.36 V111.14 H197.6 Z"/>
+            <path class="ob tbox" pathLength="1" d="M197.6 116.06 H212.84 V119.81 H197.6 Z"/>
+            <path class="ob tbox" pathLength="1" d="M217.9 116.06 H231.58 V119.81 H217.9 Z"/>
+            <path class="ob tbox" pathLength="1" d="M197.6 124.73 H215.96 V128.47 H197.6 Z"/>
+            </g>
+            <g class="ov ov-5" aria-hidden="true">
+            <circle class="hole-fill" cx="55" cy="31" r="5"/>
+            <circle class="hole-fill" cx="115" cy="51" r="5"/>
+            <g class="chip"><rect x="22.5" y="59.6" width="13.44" height="4.3" rx="1"/><text x="23.7" y="62.55" font-size="2.3">160 × 50</text></g>
+            <g class="chip"><rect x="64" y="85.85" width="13.44" height="4.3" rx="1"/><text x="65.2" y="88.8" font-size="2.3">160 × 12</text></g>
+            <g class="chip"><rect x="207" y="97.6" width="12.06" height="4.3" rx="1"/><text x="208.2" y="100.55" font-size="2.3">50 × 12</text></g>
+            </g>
+            </svg>
+          </div>
+
+          <div class="demo-tabs" role="tablist" aria-label="Pipeline steps">
+            <button class="demo-tab" type="button" role="tab" id="dt-1" aria-controls="dp-1" aria-selected="true"><span class="n" aria-hidden="true">1</span>Sheet</button>
+            <button class="demo-tab" type="button" role="tab" id="dt-2" aria-controls="dp-2" aria-selected="false" tabindex="-1"><span class="n" aria-hidden="true">2</span>Views</button>
+            <button class="demo-tab" type="button" role="tab" id="dt-3" aria-controls="dp-3" aria-selected="false" tabindex="-1"><span class="n" aria-hidden="true">3</span>Text</button>
+            <button class="demo-tab" type="button" role="tab" id="dt-4" aria-controls="dp-4" aria-selected="false" tabindex="-1"><span class="n" aria-hidden="true">4</span>Dimensions</button>
+            <button class="demo-tab" type="button" role="tab" id="dt-5" aria-controls="dp-5" aria-selected="false" tabindex="-1"><span class="n" aria-hidden="true">5</span>Size</button>
+            <button class="demo-tab" type="button" role="tab" id="dt-6" aria-controls="dp-6" aria-selected="false" tabindex="-1"><span class="n" aria-hidden="true">6</span>Files</button>
+          </div>
+
+          <div class="demo-panel" role="tabpanel" id="dp-1" aria-labelledby="dt-1">
+            <div class="panel-text">
+              <h5>Read the sheet</h5>
+              <p>The page is normalized into vector paths and text at a known scale. The title block gives the scale, the units and the projection convention.</p>
+            </div>
+            <div class="console">
+              <div class="row"><span class="k">input</span><span>plate_with_holes-0001.pdf<span class="note">vector PDF</span></span></div>
+              <div class="row"><span class="k">text layer</span><span>yes<span class="note">read directly, no OCR</span></span></div>
+              <div class="row"><span class="k">scale</span><span>1:1<span class="note">from the title block</span></span></div>
+              <div class="row"><span class="k">units</span><span>mm<span class="note">from the title block</span></span></div>
+              <div class="row"><span class="k">projection</span><span>third angle<span class="note">title block and symbol</span></span></div>
+            </div>
+          </div>
+
+          <div class="demo-panel" role="tabpanel" id="dp-2" aria-labelledby="dt-2">
+            <div class="panel-text">
+              <h5>Find the views</h5>
+              <p>The sheet frame, the title block and each view are located. In third-angle projection the top view sits above the front view and the right view sits to its right.</p>
+            </div>
+            <div class="console">
+              <div class="row"><span class="k">views</span><span>top, front, right</span></div>
+              <div class="row"><span class="k">layout</span><span>third angle<span class="note">top above front, right beside it</span></span></div>
+              <div class="row"><span class="k">sheet frame</span><span>found</span></div>
+              <div class="row"><span class="k">title block</span><span>found<span class="note">bottom right</span></span></div>
+            </div>
+          </div>
+
+          <div class="demo-panel" role="tabpanel" id="dp-3" aria-labelledby="dt-3">
+            <div class="panel-text">
+              <h5>Read the lettering</h5>
+              <p>A vector PDF carries its own text, so every label is read exactly, with no recognition step. On a scan, drafting symbols such as Ø are found by their shape first, so Ø10 never comes out as 010.</p>
+            </div>
+            <div class="console">
+              <div class="row"><span class="k">source</span><span>PDF text layer</span></div>
+              <div class="row"><span class="k">callouts</span><span>6</span></div>
+              <div class="chips"><span>160</span><span>50</span><span>12</span><span>35</span><span>35</span><span>2X Ø10</span></div>
+              <div class="row"><span class="k">title block</span><span>PART, SCALE 1:1, UNITS MM, THIRD ANGLE</span></div>
+            </div>
+          </div>
+
+          <div class="demo-panel" role="tabpanel" id="dp-4" aria-labelledby="dt-4">
+            <div class="panel-text">
+              <h5>Parse the dimensions</h5>
+              <p>Each callout becomes a value, a kind and a count, linked to the view it belongs to.</p>
+              <p class="hint">Hover or tap a row to find it on the sheet.</p>
+            </div>
+            <div class="console">
+              <table class="dimtable">
+                <thead><tr><th scope="col">value</th><th scope="col">kind</th><th scope="col">view</th><th scope="col">count</th></tr></thead>
+                <tbody>
+                  <tr data-dim="len" tabindex="0"><td>160</td><td>linear</td><td>front</td><td>1</td></tr>
+                  <tr data-dim="w50" tabindex="0"><td>50</td><td>linear</td><td>top</td><td>1</td></tr>
+                  <tr data-dim="h12" tabindex="0"><td>12</td><td>linear</td><td>front</td><td>1</td></tr>
+                  <tr data-dim="d10" tabindex="0"><td>Ø10</td><td>diameter</td><td>top</td><td>2</td></tr>
+                  <tr data-dim="x35" tabindex="0"><td>35</td><td>linear</td><td>front</td><td>1</td></tr>
+                  <tr data-dim="y35" tabindex="0"><td>35</td><td>linear</td><td>top</td><td>1</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="demo-panel" role="tabpanel" id="dp-5" aria-labelledby="dt-5">
+            <div class="panel-text">
+              <h5>Measure the part</h5>
+              <p>Wide-pen lines are the part and thin-pen lines are annotation, so the outline separates cleanly from the dimensions around it. Each axis is seen by two views and cross-checked. The holes come off the volume only because the front and right views show their walls as hidden lines.</p>
+            </div>
+            <div class="console">
+              <div class="cmd">$ <b>make read f=plate_with_holes-0001.pdf</b></div>
+<pre>part: p1 length 160 x depth 50 x height 12 mm
+      box 96,000 mm3, part ~94,115 mm3 = 98.0% of the box
+      holes: 2 subtracted (1,885 mm3), 0 circle(s) left in without hidden walls</pre>
+              <div class="ok"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Matches the ground truth exactly: 160 × 50 × 12 mm, 94,115 mm³.</span></div>
+            </div>
+          </div>
+
+          <div class="demo-panel" role="tabpanel" id="dp-6" aria-labelledby="dt-6">
+            <div class="panel-text">
+              <h5>Write the results</h5>
+              <p>Results go out as Excel, CSV and JSON, with overlay images that show where every value was found. Tolerances, roughness, material and title-block text go in their own files, so the dimensions can be shared without them.</p>
+            </div>
+            <div class="console files">
+              <div class="row"><span>dimensions.xlsx</span><span class="k">every dimension, its view and tolerance</span></div>
+              <div class="row"><span>drawing_details.json</span><span class="k">tolerances, roughness, material</span></div>
+              <div class="row"><span>part_bbox.json</span><span class="k">size, volume and where each came from</span></div>
+              <div class="row"><span>model.json</span><span class="k">views, edges and holes in one 3D frame</span></div>
+              <div class="row"><span>views_dxf.zip</span><span class="k">each view at true size, for a CAD sketch</span></div>
+              <div class="row"><span>page-0001-*.png</span><span class="k">overlays like the one above</span></div>
+            </div>
+          </div>
+        </figure>
+
+        <ul class="stats" data-reveal aria-label="Results on the synthetic test parts">
+          <li class="stat"><div class="stat-value">4 of 4</div><div class="stat-label">synthetic test parts sized exactly</div></li>
+          <li class="stat"><div class="stat-value">&lt;1%</div><div class="stat-label">volume error on every test part, two of them exact</div></li>
+          <li class="stat"><div class="stat-value">898</div><div class="stat-label">automated backend tests</div></li>
+          <li class="stat"><div class="stat-value">0</div><div class="stat-label">network calls, so it runs fully offline</div></li>
+        </ul>
+      </article>
+
+      <!-- BorealLM -->
+      <article class="project" id="boreallm" aria-labelledby="blm-title">
+        <div class="project-head" data-reveal>
+          <h3 id="blm-title">BorealLM</h3>
+          <ul class="tags" aria-label="Project status">
+            <li class="tag tag-live"><span class="pulse" aria-hidden="true"></span>In development</li>
+            <li class="tag">Research project</li>
+            <li class="tag">Private repository</li>
+          </ul>
         </div>
-        <p><strong style="font-family:var(--sans); font-weight:600;">defense-part-extractor</strong> &mdash; an MLOps-ready computer vision pipeline using the Segment Anything Model and FastAPI to isolate and clean up mechanical components from noisy, legacy defense manuals.</p>
-      </div>
 
-      <div class="entry">
-        <div class="note">
-          Python, CNN, Jupyter
-          <span class="tag"><a href="https://github.com/codekush123/Cancer_Detection" target="_blank" rel="noopener">Repository ↗</a></span>
+        <div class="project-body">
+          <div class="project-text" data-reveal>
+            <p class="lead">An experiment with small language models: how much can the right pretraining data teach a small transformer when its size and compute budget are fixed? The first specialization, BorealLM-AM, is for additive manufacturing, starting with laser powder bed fusion (LPBF).</p>
+            <p>It's designed to train on one laptop with 16 GB of memory. Right now I'm building the corpus: open-access LPBF papers, deduplicated, then scored for relevance, role, theme and quality before any of them reach training.</p>
+            <blockquote class="question"><cite>Research question</cite>How does domain-specific pretraining data composition affect the technical knowledge and language-modeling performance of small transformer models under a fixed parameter and compute budget?</blockquote>
+          </div>
+          <dl class="project-meta" data-reveal style="--delay:.08s">
+            <div><dt>First model</dt><dd>BorealLM-AM-10M, about 10 million parameters</dd></div>
+            <div><dt>Dataset</dt><dd>BorealAM-Micro, built from open-access papers indexed by OpenAlex</dd></div>
+            <div><dt>Evaluation</dt><dd>An additive-manufacturing benchmark, held-out domain perplexity, tokenizer efficiency and training efficiency</dd></div>
+            <div><dt>Stack</dt><dd>Python, OpenAlex API, JSONL data pipelines</dd></div>
+          </dl>
         </div>
-        <p><strong style="font-family:var(--sans); font-weight:600;">Cancer_Detection</strong> &mdash; a convolutional neural network trained to detect cancer from medical imaging, built to understand how CNNs behave on small, imbalanced medical datasets.</p>
-      </div>
 
-      <div class="entry">
-        <div class="note">
-          Python, ML, feature engineering
-          <span class="tag"><a href="https://github.com/codekush123/mood_based_study_mode_recommender" target="_blank" rel="noopener">Repository ↗</a></span>
+        <ol class="roadmap" data-reveal aria-label="Roadmap">
+          <li class="is-now"><span class="dot" aria-hidden="true"></span><p class="stage">Now</p><h5>Corpus</h5><p>Collect, deduplicate and label open-access LPBF papers.</p></li>
+          <li><span class="dot" aria-hidden="true"></span><p class="stage">Next</p><h5>Pretraining</h5><p>Train BorealLM-AM-10M on the corpus, on one laptop.</p></li>
+          <li><span class="dot" aria-hidden="true"></span><p class="stage">Then</p><h5>Evaluation</h5><p>Benchmark, held-out perplexity, tokenizer and training efficiency.</p></li>
+        </ol>
+
+        <figure class="corpus" data-reveal aria-labelledby="corpus-title">
+          <div class="corpus-head">
+            <h4 id="corpus-title">The corpus so far</h4>
+            <p>OpenAlex query: open access, CC BY, English, articles and reviews, 2015–2026, PDF available, not retracted.</p>
+          </div>
+          <ol class="funnel">
+            <li><div class="num">2,266</div><div class="what">papers matched the query</div></li>
+            <li><div class="num">2,259</div><div class="what">after removing exact duplicates</div></li>
+            <li><div class="num">2,255</div><div class="what">after merging versions of the same paper</div></li>
+            <li><div class="num">2,246</div><div class="what">kept, after dropping 9 that only touch on LPBF</div></li>
+          </ol>
+          <div class="corpus-body">
+            <div class="chart-bar">
+              <h5 id="chart-title">What the 2,246 papers cover</h5>
+              <div class="seg" role="group" aria-label="Chart view">
+                <button type="button" aria-pressed="true" data-view="theme">By theme</button>
+                <button type="button" aria-pressed="false" data-view="year">By year</button>
+              </div>
+            </div>
+            <div class="chart" data-chart data-total="2246">
+              <div class="chart-view" data-chart-view="theme">
+                <table class="hbars" style="--max:550">
+                  <caption class="sr-only">Papers by primary theme, out of 2,246</caption>
+                  <thead class="sr-only"><tr><th scope="col">Theme</th><th scope="col">Papers</th></tr></thead>
+                  <tbody>
+                    <tr tabindex="0" data-n="550" data-label="Mechanical properties"><th scope="row">Mechanical properties</th><td><div class="track"><span class="bar" style="--v:550"></span><span class="val">550</span></div></td></tr>
+                    <tr tabindex="0" data-n="410" data-label="Process parameters"><th scope="row">Process parameters</th><td><div class="track"><span class="bar" style="--v:410"></span><span class="val">410</span></div></td></tr>
+                    <tr tabindex="0" data-n="303" data-label="Microstructure"><th scope="row">Microstructure</th><td><div class="track"><span class="bar" style="--v:303"></span><span class="val">303</span></div></td></tr>
+                    <tr tabindex="0" data-n="287" data-label="Defects and porosity"><th scope="row">Defects and porosity</th><td><div class="track"><span class="bar" style="--v:287"></span><span class="val">287</span></div></td></tr>
+                    <tr tabindex="0" data-n="202" data-label="Melt pool and thermal"><th scope="row">Melt pool and thermal</th><td><div class="track"><span class="bar" style="--v:202"></span><span class="val">202</span></div></td></tr>
+                    <tr tabindex="0" data-n="132" data-label="Simulation and modeling"><th scope="row">Simulation and modeling</th><td><div class="track"><span class="bar" style="--v:132"></span><span class="val">132</span></div></td></tr>
+                    <tr tabindex="0" data-n="86" data-label="Residual stress"><th scope="row">Residual stress</th><td><div class="track"><span class="bar" style="--v:86"></span><span class="val">86</span></div></td></tr>
+                    <tr tabindex="0" data-n="49" data-label="Monitoring and sensing"><th scope="row">Monitoring and sensing</th><td><div class="track"><span class="bar" style="--v:49"></span><span class="val">49</span></div></td></tr>
+                    <tr tabindex="0" data-n="227" data-label="Other LPBF topics" class="is-other"><th scope="row">Other LPBF topics</th><td><div class="track"><span class="bar" style="--v:227"></span><span class="val">227</span></div></td></tr>
+                  </tbody>
+                </table>
+                <p class="chart-note">Each paper's primary theme, scored from keywords in its title (weighted three times) and abstract. By role, 966 papers study the LPBF process itself and 1,280 apply it.</p>
+              </div>
+              <div class="chart-view" data-chart-view="year" hidden>
+                <div class="cols" style="--max:415" role="list" aria-label="Papers by publication year">
+                  <div class="col" role="listitem" tabindex="0" data-n="12" data-label="2017" style="--v:12"><span class="cval" aria-hidden="true">12</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2017: 12 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="33" data-label="2018" style="--v:33"><span class="cval" aria-hidden="true">33</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2018: 33 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="45" data-label="2019" style="--v:45"><span class="cval" aria-hidden="true">45</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2019: 45 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="162" data-label="2020" style="--v:162"><span class="cval" aria-hidden="true">162</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2020: 162 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="279" data-label="2021" style="--v:279"><span class="cval" aria-hidden="true">279</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2021: 279 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="415" data-label="2022" style="--v:415"><span class="cval" aria-hidden="true">415</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2022: 415 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="383" data-label="2023" style="--v:383"><span class="cval" aria-hidden="true">383</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2023: 383 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="278" data-label="2024" style="--v:278"><span class="cval" aria-hidden="true">278</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2024: 278 papers</span></div>
+                  <div class="col" role="listitem" tabindex="0" data-n="313" data-label="2025" style="--v:313"><span class="cval" aria-hidden="true">313</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2025: 313 papers</span></div>
+                  <div class="col is-partial" role="listitem" tabindex="0" data-n="326" data-label="2026, to early October" style="--v:326"><span class="cval" aria-hidden="true">326</span><span class="cbar" aria-hidden="true"></span><span class="sr-only">2026, to early October: 326 papers</span></div>
+                </div>
+                <div class="col-labels" aria-hidden="true"><span>2017</span><span>2018</span><span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026*</span></div>
+                <p class="chart-note">By publication year. *2026 runs to early October, when the corpus was collected, and is drawn lighter. The query allows papers from 2015, but the earliest match is from 2017.</p>
+              </div>
+              <div class="tip" data-tip aria-hidden="true"></div>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <div class="earlier" data-reveal>
+        <h3>Earlier projects</h3>
+        <ul class="repo-list">
+          <li>
+            <a class="repo" href="https://github.com/codekush123/machine_vision_DobotMG400" target="_blank" rel="noopener">
+              <span class="repo-name">machine_vision_DobotMG400</span>
+              <span class="repo-desc">Vision-guided pick and place: a fixed camera finds objects, a calibration maps them into robot coordinates and a Dobot MG400 arm picks them up.<span>Python · OpenCV · robotics</span></span>
+              <svg class="icon" aria-hidden="true"><use href="#i-out"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="repo" href="https://github.com/codekush123/Cancer_Detection" target="_blank" rel="noopener">
+              <span class="repo-name">Cancer_Detection</span>
+              <span class="repo-desc">A convolutional neural network that detects cancer in medical images, built to understand how CNNs behave on small, imbalanced medical datasets.<span>Python · CNN · Jupyter</span></span>
+              <svg class="icon" aria-hidden="true"><use href="#i-out"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="repo" href="https://github.com/codekush123/Fake_News_Detector" target="_blank" rel="noopener">
+              <span class="repo-name">Fake_News_Detector</span>
+              <span class="repo-desc">A text classifier that flags news articles as real or fake, using standard NLP cleaning and vectorization feeding a supervised model.<span>Python · NLP · scikit-learn</span></span>
+              <svg class="icon" aria-hidden="true"><use href="#i-out"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow"><span class="num">02</span> Experience</p>
+        <h2 id="exp-title">Where I've worked</h2>
+      </header>
+      <ol class="jobs">
+        <li class="job" data-reveal>
+          <div class="job-when"><span><time datetime="2025-11">Nov 2025</time> – present</span><span class="tag tag-live"><span class="pulse" aria-hidden="true"></span>Current</span></div>
+          <div>
+            <h3>SelectAM <span class="job-role">Project-based student</span></h3>
+            <p class="job-context">Finland. A small, fast-moving defense startup, where most problems don't come with a manual.</p>
+            <ul class="job-points">
+              <li>Built a REST API around a Tencent model that turns vector drawings into CAD-ready models. That meant learning to run large models locally and to lean on computer-vision libraries.</li>
+              <li>Now building <a href="#cad-drawing-reader">cad-drawing-reader</a>, a local pipeline that reads a part's views, dimensions, tolerances and size straight from its drawing, with a web app, a command line and a REST API.</li>
+              <li>Work directly with the CTO and CBO to keep the project pointed at what the company actually needs, which has been as much a communication exercise as a technical one.</li>
+            </ul>
+            <ul class="tags" aria-label="Skills used">
+              <li class="tag">Python</li><li class="tag">FastAPI</li><li class="tag">OpenCV</li><li class="tag">OCR</li><li class="tag">CAD</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job" data-reveal>
+          <div class="job-when"><span><time datetime="2025-08">Aug 2025</time> – <time datetime="2025-12">Dec 2025</time></span></div>
+          <div>
+            <h3>Demola Group <span class="job-role">Edge Vision project</span></h3>
+            <ul class="job-points">
+              <li>Developed a computer-vision prototype that reads workstation posture from video and turns it into ergonomics recommendations, working across data preprocessing, supervised model experiments and the REST API that tied it together.</li>
+              <li>Presented the prototype over several iterations to stakeholders from Microsoft, the City of Riihimäki and Business Vantaa, as part of an agile, cross-functional team.</li>
+            </ul>
+            <ul class="tags" aria-label="Skills used">
+              <li class="tag">Computer vision</li><li class="tag">Supervised learning</li><li class="tag">REST API</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow"><span class="num">03</span> About</p>
+        <h2 id="about-title">A bit about me</h2>
+      </header>
+      <div class="about-grid">
+        <div class="about-text" data-reveal>
+          <p>I'm most interested in problems where a model has to make sense of something real: a drawing, a camera feed, a body in motion. That has pulled me toward defense, robotics and aerospace.</p>
+          <p>I'm still early in it. Most of what I know comes from coursework, my own projects and my work at SelectAM, which has taught me more than I expected. I also work through <a href="https://leetcode.com/codekush123/" target="_blank" rel="noopener">LeetCode problems</a> on a rolling basis, mostly to keep the fundamentals from going soft.</p>
         </div>
-        <p><strong style="font-family:var(--sans); font-weight:600;">mood_based_study_mode_recommender</strong> &mdash; a mood-aware study session recommender built with interpretable ML, focused more on label quality and behavior-level evaluation under low-data conditions than on chasing accuracy.</p>
-      </div>
-
-      <div class="entry">
-        <div class="note">
-          Python, NLP, scikit-learn
-          <span class="tag"><a href="https://github.com/codekush123/Fake_News_Detector" target="_blank" rel="noopener">Repository ↗</a></span>
+        <div class="facts" data-reveal style="--delay:.08s">
+          <h3>Skills</h3>
+          <dl class="skills">
+            <div><dt>Programming</dt><dd>Python (advanced), SQL (MySQL), Git</dd></div>
+            <div><dt>Machine learning</dt><dd>Supervised and unsupervised learning, feature engineering, CNNs</dd></div>
+            <div><dt>Computer vision</dt><dd>OpenCV, OCR with Tesseract and PaddleOCR, PDF geometry with PyMuPDF</dd></div>
+            <div><dt>Back end</dt><dd>FastAPI, REST APIs, PostgreSQL, Redis, Docker</dd></div>
+            <div><dt>Tools</dt><dd>SageMaker, Jupyter, Streamlit, Cursor</dd></div>
+            <div><dt>Networking</dt><dd>TCP/IP, PuTTY, server fundamentals</dd></div>
+          </dl>
         </div>
-        <p><strong style="font-family:var(--sans); font-weight:600;">Fake_News_Detector</strong> &mdash; a text classifier that flags news articles as real or fake, using standard NLP cleaning and vectorization feeding into a supervised model.</p>
       </div>
-    </section>
-
-    <section id="notes">
-      <span class="label">Skills</span>
-      <div class="skills-list">
-        <div class="row"><div class="k">Programming</div><div class="v">Python (advanced), SQL (MySQL / analytical), Git</div></div>
-        <div class="row"><div class="k">Tools</div><div class="v">SageMaker, Jupyter Notebook, Streamlit, Cursor</div></div>
-        <div class="row"><div class="k">Networking</div><div class="v">TCP/IP, PuTTY, server fundamentals</div></div>
-        <div class="row"><div class="k">Machine learning</div><div class="v">Supervised &amp; unsupervised learning, feature engineering</div></div>
+      <div class="creds">
+        <div data-reveal>
+          <h3>Education</h3>
+          <div class="school">
+            <strong>Häme University of Applied Sciences</strong>
+            <span>2024 – 2027</span>
+            <p>Bachelor's in Information and Communication Technology. Coursework in network management, software development, machine learning and communication technologies.</p>
+          </div>
+        </div>
+        <div data-reveal style="--delay:.08s">
+          <h3>Certifications</h3>
+          <ul class="cert-list">
+            <li>Data and Programming Foundations for Machine Learning</li>
+            <li>AWS Educate: Machine Learning Foundations</li>
+            <li>Cisco Certified Network Associate: Networking</li>
+            <li>IBM: Certified Data Scientist</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="education">
-      <span class="label">Education &amp; certifications</span>
-      <div class="entry">
-        <div class="note"><strong>Häme University of Applied Sciences</strong>2024 &ndash; 2027</div>
-        <p><strong style="font-family:var(--sans); font-weight:600;">Bachelor's, Information &amp; Communication Technology.</strong> Coursework: network management, software development, machine learning, communication technologies.</p>
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-card">
+      <div data-reveal>
+        <p class="eyebrow"><span class="num">04</span> Contact</p>
+        <h2 id="contact-title">Get in touch</h2>
+        <p class="section-intro">I'm open to internships and hands-on machine learning or computer vision work. Email is the quickest way to reach me.</p>
+        <div class="email-row">
+          <a class="email" href="mailto:pkush2036@gmail.com">pkush2036@gmail.com</a>
+          <button class="icon-btn copy-btn" type="button" data-copy="pkush2036@gmail.com" aria-label="Copy email address">
+            <svg class="icon i-copy" aria-hidden="true"><use href="#i-copy"/></svg>
+            <svg class="icon i-check" aria-hidden="true"><use href="#i-check"/></svg>
+          </button>
+          <span class="sr-only" aria-live="polite" data-copy-status></span>
+        </div>
       </div>
-      <ul class="cert-list">
-        <li>Data and Programming Foundations for Machine Learning</li>
-        <li>AWS Educate &mdash; Machine Learning Foundations</li>
-        <li>Cisco Certified Network Associate &mdash; Networking</li>
-        <li>IBM &mdash; Certified Data Scientist</li>
-      </ul>
-    </section>
-
-    <section id="leetcode">
-      <span class="label">LeetCode</span>
-      <p class="plain-para">Working through problems on a rolling basis to keep data structures and algorithms sharp alongside coursework and project work.</p>
-      <p style="margin-top:10px;"><a href="https://leetcode.com/codekush123/" target="_blank" rel="noopener" style="font-family:var(--sans); font-size:15px;">leetcode.com/codekush123 ↗</a></p>
-    </section>
-
-    <footer id="contact">
-      <span class="label">Contact</span>
-      <p>Open to internships and hands-on machine learning or computer vision work.</p>
-      <div class="contact-links">
-        <div><a href="mailto:pkush2036@gmail.com">pkush2036@gmail.com</a></div>
-        <div><a href="https://github.com/codekush123" target="_blank" rel="noopener">github.com/codekush123 ↗</a></div>
-        <div><a href="https://www.linkedin.com/in/kushpatel9650/" target="_blank" rel="noopener">linkedin.com/in/kushpatel9650 ↗</a></div>
+      <div class="links" data-reveal style="--delay:.08s">
+        <a href="https://github.com/codekush123" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span><small>codekush123</small><svg class="icon i-out" aria-hidden="true"><use href="#i-out"/></svg></a>
+        <a href="https://www.linkedin.com/in/kushpatel9650/" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn</span><small>kushpatel9650</small><svg class="icon i-out" aria-hidden="true"><use href="#i-out"/></svg></a>
+        <a href="https://leetcode.com/codekush123/" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span>LeetCode</span><small>codekush123</small><svg class="icon i-out" aria-hidden="true"><use href="#i-out"/></svg></a>
       </div>
-      <div class="foot-meta">
-        <span>Kush Patel · Helsinki, Finland</span>
-        <span>Last updated July 2026</span>
-      </div>
-    </footer>
+    </div>
+  </section>
 
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© 2026 Kush Patel</span>
+    <span>Helsinki, Finland · Updated October 2026</span>
+    <a href="#top">Back to top ↑</a>
   </div>
-</div>
+</footer>
 </body>
 </html>
